@@ -7,7 +7,8 @@ const imageHeight = image.height,
         halfImageWidth = image.width / 2;
 
 let level = 0;
-let score = 100;
+let score = 250;
+
 
 //unattached functions
 const random = (a, b) => Math.random() * a + b;
@@ -154,7 +155,7 @@ setInterval(() => {
 let projectiles = [];
 let circles = [];
 let explosions = [];
-let numberOfCircle = 20;
+let numberOfCircle = 50;
 let gameStatus = null;
 //reset function
 function reset() {
@@ -168,7 +169,7 @@ function reset() {
 //load circles
 const fillCircle = () => {
         for (let i = 0; i < numberOfCircle; i++) {
-                circles.push(new circle(random(canvas.width - 40, 0), 0, random(20, 5), 0, random(2, 0.5), colorRandom()))
+                circles.push(new circle(random(canvas.width - 40, 0), 0, random(30, 10), 0, random(2, 0.5), colorRandom()))
 
         }
 }
@@ -220,9 +221,9 @@ function update() {
 
                                 }
 
-                                if (circle.radius - 5 > 5) {
-                                        circle.radius -= 5;
-                                        circle.dy *= 0.70;
+                                if (circle.radius - 10 > 10) {
+                                        circle.radius -= 10;
+                                        circle.dy *= 0.80;
                                 }
                                 else {
                                         circles.splice(i, 1);
@@ -263,11 +264,24 @@ document.onkeydown = (e) => {
                 player.x -= player.dx;
         }
         if (e.key == "Shift") {
-                projectiles.push(new projectile(player.x - halfImageWidth / 2, player.y - imageHeight / 2, 3, 0, 6, 'white'));
+                projectiles.push(new projectile(player.x - halfImageWidth / 2, player.y - imageHeight / 2, 4, 0, canvas.height/80, 'white'));
                 score -= 1;
         }
 
 }
+//for mobile
+document.getElementById('moveLeft').addEventListener('click', () => {
+        player.x -= player.dx;
+})
+document.getElementById('shoot').addEventListener('click', () => {
+        projectiles.push(new projectile(player.x - halfImageWidth / 2, player.y - imageHeight / 2, 4, 0, canvas.height/80, 'white'));
+        score -= 1;       
+})
+document.getElementById('moveRight').addEventListener('click', () => {
+        player.x += player.dx;
+})
+
+//start game
 document.getElementById('start').addEventListener('click', () => {
         document.getElementById('startCover').style.display = 'none';
         document.getElementById('section1').style.display = 'flex';

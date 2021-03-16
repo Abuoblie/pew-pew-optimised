@@ -5,6 +5,18 @@ body {
         background:url(../Assets/65iSXU.jpg);
         background-size: cover;
 } 
+p {
+        padding: 1em;
+        text-align: center;
+        width: auto;
+        border: thin;
+        border-radius: 10px;
+        box-shadow: 4px 4px rgb(71, 66, 66);
+        background-color: rgb(245, 217, 182, 0.2);
+        height: 1.5em;
+        vertical-align: middle;
+        text-shadow: 4px 4px  2px black;
+}
 .sect2 {
         position: fixed;
         display: flex;
@@ -70,3 +82,19 @@ article p{
         justify-content: center;
         align-items: center;
 }
+
+ .sec3{
+     display: flex;
+     justify-content: space-between;
+ }
+       
+@media  (min-width: 760px) {
+        .moveLeft, .moveRight, .shoot {
+          display: none;
+        }
+ }
+ @media only screen and (max-width: 760px) {
+        .moveLeft, .moveRight, .shoot {
+          display: flex;
+        }
+ }
