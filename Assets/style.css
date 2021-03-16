@@ -93,7 +93,7 @@ article p{
           display: none;
         }
  }
- @media only screen and (max-width: 760px) {
+ @media  (max-width: 760px) {
         .moveLeft, .moveRight, .shoot {
           display: flex;
         }
