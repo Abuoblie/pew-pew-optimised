@@ -270,16 +270,17 @@ document.onkeydown = (e) => {
 
 }
 //for mobile
-document.getElementById('moveLeft').addEventListener('click', () => {
+document.getElementById('moveLeft').addEventListener('touchstart ', (e) => {
         player.x -= player.dx;
-})
-document.getElementById('shoot').addEventListener('click', () => {
+        console.log(e)
+},false)
+document.getElementById('shoot').addEventListener('touchstart ', (e) => {
         projectiles.push(new projectile(player.x - halfImageWidth / 2, player.y - imageHeight / 2, 4, 0, canvas.height/80, 'white'));
         score -= 1;       
-})
-document.getElementById('moveRight').addEventListener('click', () => {
+},false)
+document.getElementById('moveRight').addEventListener('touchstart ', (e) => {
         player.x += player.dx;
-})
+},false)
 
 //start game
 document.getElementById('start').addEventListener('click', () => {
