@@ -155,7 +155,7 @@ setInterval(() => {
 let projectiles = [];
 let circles = [];
 let explosions = [];
-let numberOfCircle = 50;
+let numberOfCircle = 20;
 let gameStatus = null;
 //reset function
 function reset() {
@@ -196,10 +196,13 @@ function update() {
                         }, 0);
                 }
         });
+        //refill
         if (circles.length == 0) {
                 level += 1;
                 fillCircle();
                 circle.dy += (level - 1) / 2;
+                //increase the number of circles by 10
+                numberOfCircle += 10;
                 console.log(score)
 
         }
@@ -264,23 +267,22 @@ document.onkeydown = (e) => {
                 player.x -= player.dx;
         }
         if (e.key == "Shift") {
-                projectiles.push(new projectile(player.x - halfImageWidth / 2, player.y - imageHeight / 2, 4, 0, canvas.height/80, 'white'));
+                projectiles.push(new projectile(player.x - halfImageWidth / 2, player.y - imageHeight / 2, 4, 0, canvas.height / 80, 'white'));
                 score -= 1;
         }
 
 }
 //for mobile
-document.getElementById('moveLeft').addEventListener('touchstart ', (e) => {
+document.getElementById('moveLeft').addEventListener('click', () => {
         player.x -= player.dx;
-        console.log(e)
-},false)
-document.getElementById('shoot').addEventListener('touchstart ', (e) => {
-        projectiles.push(new projectile(player.x - halfImageWidth / 2, player.y - imageHeight / 2, 4, 0, canvas.height/80, 'white'));
-        score -= 1;       
-},false)
-document.getElementById('moveRight').addEventListener('touchstart ', (e) => {
+})
+document.getElementById('shoot').addEventListener('click', () => {
+        projectiles.push(new projectile(player.x - halfImageWidth / 2, player.y - imageHeight / 2, 4, 0, canvas.height / 55, 'white'));
+        score -= 1;
+})
+document.getElementById('moveRight').addEventListener('click', () => {
         player.x += player.dx;
-},false)
+})
 
 //start game
 document.getElementById('start').addEventListener('click', () => {

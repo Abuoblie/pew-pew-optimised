@@ -39,7 +39,10 @@ button {
         height: 10vh; 
         color: rgb(219, 213, 213);
         background-color: rgb(65, 65, 138, 0.2);
-        border-radius: 20px;      
+        border-radius: 20px;  
+        pointer-events: all;  
+        touch-action: all;
+
 }
 .sect2 button{
         animation: animate 10s  ease-in;
