@@ -165,6 +165,7 @@ function reset() {
         level = 0;
         score = 100;
         fillCircle();
+        numberOfCircle = 20;
 }
 //load circles
 const fillCircle = () => {
