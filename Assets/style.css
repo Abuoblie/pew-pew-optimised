@@ -4,6 +4,8 @@ body {
         padding: 0;
         background:url(../Assets/65iSXU.jpg);
         background-size: cover;
+        width: 100vw;
+        overflow: hidden;
 } 
 p {
         padding: 1em;
